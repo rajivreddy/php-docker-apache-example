@@ -1,0 +1,40 @@
+Parameters:
+  DesiredCount:
+    Type: String
+  # TargetGroup:
+  #   Type: String
+  Cluster:
+    Type: String
+  Image:
+    Type: String
+  Role:
+    Type: String
+  TargetGroupArn:
+    Type: String
+
+Resources:
+  Service:
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster: !Ref Cluster
+      DesiredCount: !Ref DesiredCount
+      TaskDefinition: !Ref TaskDefinition
+      LoadBalancers:
+        - ContainerName: simple-app
+          ContainerPort: 80
+          TargetGroupArn: !Ref TargetGroup
+
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: Service
+      ContainerDefinitions:
+        - Name: simple-app
+          Image: !Ref Image
+          PortMappings:
+            - ContainerPort: 80
+
+
+Outputs:
+  ServiceName:
+    Value: !Ref Service
