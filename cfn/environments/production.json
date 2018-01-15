@@ -1,0 +1,11 @@
+{
+    "Parameters":{
+        "Cluster":"",
+        "DesiredCount": "",
+        "Role":"",
+        "TargetGroupArn": "",
+        "Image":{
+            "Fn:GetParam":["MyAppBuild","images.json","Image"]
+        }
+    }
+}
