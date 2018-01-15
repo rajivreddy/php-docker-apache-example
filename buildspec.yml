@@ -3,12 +3,15 @@ phases:
   pre_build:
     commands:
       - $(aws ecr get-login --no-include-email --region us-east-2)
-      - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-      - echo $TAG
-      - IMAGE_URI="${REPOSITORY}:${TAG}"
+      #- TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+      #- echo $TAG
+      - IMAGE_URI="${REPOSITORY}:latest"
       - echo $IMAGE_URI
   build:
     commands:
+      - echo $IMAGE_URI
+      - echo ${REPOSITORY}
+      -  echo $TAG
       - docker build -t $REPOSITORY:$TAG .
   post_build:
     commands:
