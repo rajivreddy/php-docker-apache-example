@@ -9,7 +9,7 @@ phases:
       - echo $IMAGE_URI
   build:
     commands:
-      - docker build --tag "${REPOSITORY}:${TAG}" .
+      - docker build -t $REPOSITORY:$TAG .
   post_build:
     commands:
       - docker push "$IMAGE_URI"
