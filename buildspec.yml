@@ -16,11 +16,11 @@ phases:
   post_build:
     commands:
       - docker push "$IMAGE_URI"
-      - 'echo "{\"image\": \"${IMAGE_URI}\"}" > image.json'
+      - printf '[{"name":"simpleapp","imageUri":"%s"}]' $IMAGE_URI > image.json
       - 'cat image.json'
 artifacts:
   files: 
     - image.json
     # - cfn/service.yml
     # - cfn/environments/production.json
-  discard-paths: yes
+  #discard-paths: yes
