@@ -38,6 +38,7 @@ old ones running. If anything bad happens, switching back to the old
 containers is quick and reliable.
 
 
+
 #### More information
 
 * The PHP application code goes in `myapp/`
