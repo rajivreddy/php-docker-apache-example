@@ -20,6 +20,6 @@ phases:
 artifacts:
   files: 
     - images.json
-    - cfn/services.yml
+    - cfn/service.yml
     - cfn/environments/production.json
   discard-paths: yes

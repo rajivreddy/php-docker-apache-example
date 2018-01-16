@@ -1,9 +1,9 @@
 {
     "Parameters":{
-        "Cluster":"",
-        "DesiredCount": "",
-        "Role":"",
-        "TargetGroupArn": "",
+        "Cluster":"default",
+        "DesiredCount": "2",
+        "Role":"ecsServiceRole",
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:473088574588:targetgroup/ecs-defaul-hello/970422d4ad5a910e",
         "Image":{
             "Fn:GetParam":["MyAppBuild","images.json","Image"]
         }

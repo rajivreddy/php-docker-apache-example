@@ -20,7 +20,7 @@ Resources:
       DesiredCount: !Ref DesiredCount
       TaskDefinition: !Ref TaskDefinition
       LoadBalancers:
-        - ContainerName: simple-app
+        - ContainerName: simpleapp
           ContainerPort: 80
           TargetGroupArn: !Ref TargetGroup
 
